@@ -42,7 +42,8 @@ int ft_strlen(char *str)
     return (i);
 }
 
-void swap(int *a, int *b) {
+void swap(int *a, int *b)
+{
     int temp = *a;
     *a = *b;
     *b = temp;
@@ -74,11 +75,14 @@ void quicksort(int *arr, int lb, int ub) {
         quicksort(arr, (loc + 1), ub);
     }
 }
-
 // Function to convert an integer to a string
 void ft_itoa(int num, char *str)
 {
-    int i = 0;
+    int len;
+    int tem;
+    int i;
+
+    i = 0;
     if (num == -2147483648)
         write (1, "-2147483648", 11);
 
@@ -88,19 +92,18 @@ void ft_itoa(int num, char *str)
         str[i] = '\0';
         return;
     }
-
     // Handle negative numbers
-    if (num < 0) {
+    if (num < 0)
+    {
         str[i++] = '-';
         num = -num;
     }
 
-    int len = 0;
-    int temp = num;
-    
-    while (temp > 0)
+    len = 0;
+    tem = num;
+    while (tem > 0)
     {
-        temp /= 10;
+        tem /= 10;
         len++;
     }
     str[len] = '\0';
@@ -112,14 +115,16 @@ void ft_itoa(int num, char *str)
     }
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     int i = 1;
 
     if (argc > 1) {
         int size = argc - 1;
         int *arr = malloc(sizeof(int) * size);
 
-        while (i < argc) {
+        while (i < argc)
+        {
             arr[i - 1] = ft_atoi(argv[i]);
             i++;
         }
@@ -129,7 +134,8 @@ int main(int argc, char *argv[]) {
         
         i = 0;
         char buf[20];
-        while (i < size) {
+        while (i < size)
+        {
             ft_itoa(arr[i], buf);
             write(1, buf, ft_strlen(buf));
             write(1, "\n", 1);
