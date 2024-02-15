@@ -39,6 +39,11 @@ int ft_strlen(char *str)
     return (i);
 }
 
+void p(char c)
+{
+    write(1, &c, 1);
+}
+
 void ft_itoa(int num, char *str)
 {
     int len;
@@ -56,9 +61,9 @@ void ft_itoa(int num, char *str)
         return;
     }
 
-    if (num < 0)
+    if (num < 0 && num != -2147483648)
     {
-        str[i++] = '-';
+        p('-');
         num = -num;
     }
 
